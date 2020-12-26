@@ -10,4 +10,4 @@ Versions of the project currently recieving security updates
 
 ## Reporting a Vulnerability
 
-To report a vunerability send an email to [jesse.wright@anu.edu.au](jesse.wright@anu.edu.au) with subject "Vunerability Report: Simplify-logic-statement-ts"
+To report a vunerability send an email to [jesse.wright@anu.edu.au](jesse.wright@anu.edu.au) with subject "Vunerability Report: Build-logic-statement-ts"
