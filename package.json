@@ -1,7 +1,7 @@
 {
-  "name": "simplify-logic-statement-ts",
+  "name": "build-logic-statement-ts",
   "version": "0.1.0",
-  "description": "Takes a logical statement and simplifies it.",
+  "description": "Build logical statements",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
   "directories": {
@@ -16,20 +16,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jeswr/simplify-logic-statement-ts.git"
+    "url": "git+https://github.com/jeswr/build-logic-statement-ts.git"
   },
   "keywords": [
     "logic",
     "statement",
-    "simplify",
+    "build",
     "typescript"
   ],
   "author": "Jesse Wright <jesse.wright@anu.edu.au>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jeswr/simplify-logic-statement-ts/issues"
+    "url": "https://github.com/jeswr/build-logic-statement-ts/issues"
   },
-  "homepage": "https://github.com/jeswr/simplify-logic-statement-ts#readme",
+  "homepage": "https://github.com/jeswr/build-logic-statement-ts#readme",
   "devDependencies": {
     "@types/jest": "^26.0.19",
     "@typescript-eslint/eslint-plugin": "^4.11.0",
