@@ -3,7 +3,6 @@
 /**
  * Used to build and, or and xone statements
  */
-// TODO: FIX SPELLING OF STATEMENT UPSTREAM
 import {
   AndStatement, LogicalStatementType, NotStatement, OrStatement, Statement, XoneStatement,
 } from 'simplify-logic-statement-ts';
