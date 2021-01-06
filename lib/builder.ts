@@ -5,7 +5,7 @@
  */
 // TODO: FIX SPELLING OF STATEMENT UPSTREAM
 import {
-  AndStatement, LogicalStatementType, NotStatement, OrStatement, Statment, XoneStatement,
+  AndStatement, LogicalStatementType, NotStatement, OrStatement, Statement, XoneStatement,
 } from 'simplify-logic-statement-ts';
 
 export type Builder<T> =
@@ -139,7 +139,7 @@ export class StatementBuilder<T> {
     this.statement = statement;
   }
 
-  build(): Statment<T> {
+  build(): Statement<T> {
     return {
       type: LogicalStatementType.statement,
       statement: this.statement,
