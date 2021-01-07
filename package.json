@@ -14,7 +14,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint lib/* --ext .ts",
-    "lint-fix": "eslint lib/* --ext .ts --fix",
+    "lint:fix": "eslint lib/* --ext .ts --fix",
     "build": "tsc",
     "prepare": "tsc",
     "semantic-release": "semantic-release"

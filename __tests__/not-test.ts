@@ -130,6 +130,136 @@ describe('Not Builder Tests', () => {
       }
     });
   });
+});
+
+describe('Not Builder Tests (using add)', () => {
+  it('should throw error when building without statement', () => {
+    expect(() => new NotBuilder<string>().build()).toThrow('Statement in \'not\' builder is undefined');
+  });
+  it('should build single negated statement', () => {
+    const builder = new NotBuilder<string>();
+    const statement = builder.addStatement('hello');
+    expect(builder.build()).toEqual({
+      type: LogicalStatementType.not,
+      statement: {
+        type: LogicalStatementType.statement,
+        statement: 'hello'
+      }
+    });
+    expect(statement.build()).toEqual({
+      type: LogicalStatementType.statement,
+      statement: 'hello'
+    });
+  });
+  it('should build single empty negated and statement', () => {
+    const builder = new NotBuilder<string>();
+    const and = builder.addAnd();
+    expect(builder.build()).toEqual({
+      type: LogicalStatementType.not,
+      statement: {
+        type: LogicalStatementType.and,
+        statement: {
+          [LogicalStatementType.and]: [],
+          [LogicalStatementType.or]: [],
+          [LogicalStatementType.not]: [],
+          [LogicalStatementType.xone]: [],
+          [LogicalStatementType.statement]: [],
+        },
+      }
+    });
+    expect(and.build()).toEqual({
+      type: LogicalStatementType.and,
+      statement: {
+        [LogicalStatementType.and]: [],
+        [LogicalStatementType.or]: [],
+        [LogicalStatementType.not]: [],
+        [LogicalStatementType.xone]: [],
+        [LogicalStatementType.statement]: [],
+      },
+    });
+  });
+  it('should build single empty negated or statement', () => {
+    const builder = new NotBuilder<string>();
+    const or = builder.addOr();
+    expect(builder.build()).toEqual({
+      type: LogicalStatementType.not,
+      statement: {
+        type: LogicalStatementType.or,
+        statement: {
+          [LogicalStatementType.and]: [],
+          [LogicalStatementType.or]: [],
+          [LogicalStatementType.not]: [],
+          [LogicalStatementType.xone]: [],
+          [LogicalStatementType.statement]: [],
+        },
+      }
+    });
+    expect(or.build()).toEqual({
+      type: LogicalStatementType.or,
+      statement: {
+        [LogicalStatementType.and]: [],
+        [LogicalStatementType.or]: [],
+        [LogicalStatementType.not]: [],
+        [LogicalStatementType.xone]: [],
+        [LogicalStatementType.statement]: [],
+      },
+    });
+  });
+  it('should build single empty negated xone statement', () => {
+    const builder = new NotBuilder<string>();
+    const xone = builder.addXone();
+    expect(builder.build()).toEqual({
+      type: LogicalStatementType.not,
+      statement: {
+        type: LogicalStatementType.xone,
+        statement: {
+          [LogicalStatementType.and]: [],
+          [LogicalStatementType.or]: [],
+          [LogicalStatementType.not]: [],
+          [LogicalStatementType.xone]: [],
+          [LogicalStatementType.statement]: [],
+        },
+      }
+    });
+    expect(xone.build()).toEqual({
+      type: LogicalStatementType.xone,
+      statement: {
+        [LogicalStatementType.and]: [],
+        [LogicalStatementType.or]: [],
+        [LogicalStatementType.not]: [],
+        [LogicalStatementType.xone]: [],
+        [LogicalStatementType.statement]: [],
+      },
+    });
+  });
+  it('should throw error on empty nested not', () => {
+    const builder = new NotBuilder<string>();
+    const not = builder.addNot();
+    expect(() => builder.build()).toThrow('Statement in \'not\' builder is undefined');
+    expect(() => not.build()).toThrow('Statement in \'not\' builder is undefined');
+  });
+  it('should build statement inside nested not', () => {
+    const builder = new NotBuilder<string>();
+    const not = builder.addNot();
+    const statement = not.addStatement('hello');
+    expect(not.build()).toEqual({
+      type: LogicalStatementType.not,
+      statement: {
+        type: LogicalStatementType.statement,
+        statement: 'hello'
+      }
+    });
+    expect(builder.build()).toEqual({
+      type: LogicalStatementType.not,
+      statement: {
+        type: LogicalStatementType.not,
+        statement: {
+          type: LogicalStatementType.statement,
+          statement: 'hello'
+        }
+      }
+    });
+  });
 })
 // import {
 //   LogicalStatement, LogicalStatementType, NotStatement, simplify,
