@@ -110,7 +110,7 @@ export class NotBuilder<T> {
     this.statement = new XoneBuilder<T>();
     return this.statement;
   }
-  
+
   /**
    * @deprecated Use addNot() instead
    */
@@ -118,7 +118,7 @@ export class NotBuilder<T> {
     this.statement = new NotBuilder<T>();
     return this.statement;
   }
-  
+
   /**
    * @deprecated Use addStatement() instead
    */
