@@ -87,27 +87,67 @@ export class AndBuilder<T> extends CollectionBuilder<T, AndStatement<T>> {
 export class NotBuilder<T> {
   private statement: Builder<T> | undefined;
 
+  /**
+   * @deprecated Use addAnd() instead
+   */
   setAnd() {
     this.statement = new AndBuilder<T>();
     return this.statement;
   }
 
+  /**
+   * @deprecated Use addOr() instead
+   */
   setOr() {
     this.statement = new OrBuilder<T>();
     return this.statement;
   }
 
+  /**
+   * @deprecated Use addXone() instead
+   */
   setXone() {
     this.statement = new XoneBuilder<T>();
     return this.statement;
   }
-
+  
+  /**
+   * @deprecated Use addNot() instead
+   */
   setNot() {
     this.statement = new NotBuilder<T>();
     return this.statement;
   }
-
+  
+  /**
+   * @deprecated Use addStatement() instead
+   */
   setStatement(statement: T) {
+    this.statement = new StatementBuilder<T>(statement);
+    return this.statement;
+  }
+
+  addAnd() {
+    this.statement = new AndBuilder<T>();
+    return this.statement;
+  }
+
+  addOr() {
+    this.statement = new OrBuilder<T>();
+    return this.statement;
+  }
+
+  addXone() {
+    this.statement = new XoneBuilder<T>();
+    return this.statement;
+  }
+
+  addNot() {
+    this.statement = new NotBuilder<T>();
+    return this.statement;
+  }
+
+  addStatement(statement: T) {
     this.statement = new StatementBuilder<T>(statement);
     return this.statement;
   }
