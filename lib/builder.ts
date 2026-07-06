@@ -4,7 +4,8 @@
  * Used to build and, or and xone statements
  */
 import {
-  AndStatement, LogicalStatementType, NotStatement, OrStatement, Statement, XoneStatement,
+  AndStatement, EmptyStatement, LogicalStatementType, NotStatement, OrStatement, Statement,
+  XoneStatement,
 } from 'simplify-logic-statement-ts';
 
 export type Builder<T> =
@@ -81,6 +82,21 @@ export class AndBuilder<T> extends CollectionBuilder<T, AndStatement<T>> {
 
   build(): AndStatement<T> {
     return this.builder();
+  }
+}
+
+export class EmptyBuilder {
+  private statement: boolean
+
+  constructor(statement: boolean) {
+    this.statement = statement;
+  }
+
+  build(): EmptyStatement {
+    return {
+      type: LogicalStatementType.empty,
+      statement: this.statement,
+    };
   }
 }
 
