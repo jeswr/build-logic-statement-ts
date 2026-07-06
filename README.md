@@ -27,12 +27,12 @@ new AndBuilder().build();
 // }
 
 const myAndBuilder = new AndBuilder();
-builder.addAnd()
-builder.addOr()
-builder.addNot().setStatement('hi')
-builder.addXone()
-builder.addStatement('hi')
-builder.build()
+myAndBuilder.addAnd()
+myAndBuilder.addOr()
+myAndBuilder.addNot().setStatement('hi')
+myAndBuilder.addXone()
+myAndBuilder.addStatement('hi')
+myAndBuilder.build()
 // {
 //   type: LogicalStatementType.and,
 //     statement: {
@@ -86,4 +86,4 @@ There are equivalent API's for the `NotBuilder`, `OrBuilder` and `XoneBuilder`.
 ## License
 ©2020–present
 [Jesse Wright](https://github.com/jeswr).
-[MIT License](https://github.com/jeswr/useState/blob/master/LICENSE.md).
+[MIT License](https://github.com/jeswr/build-logic-statement-ts/blob/main/LICENSE).
