@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "description": "Build logical statements",
   "main": "dist/index.js",
-  "types": "dist/index.d.js",
+  "types": "dist/index.d.ts",
   "directories": {
     "lib": "lib"
   },
